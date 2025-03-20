@@ -7,8 +7,8 @@ set_property -dict { PACKAGE_PIN R2    IOSTANDARD LVCMOS33 } [get_ports { IO_CLK
 create_clock -add -name sys_clk_pin -period 10.000 -waveform {0 5.000}  [get_ports { IO_CLK }];
 
 ## CPU Reset Button. Steal BTN[3] to make things work "out of the box"
-#set_property -dict { PACKAGE_PIN C18    IOSTANDARD LVCMOS33 } [get_ports { IO_RST }]; #IO_L16P_T2_35 Sch=ck_rst
-set_property -dict { PACKAGE_PIN H13   IOSTANDARD LVCMOS33 } [get_ports { IO_RST }]; #IO_L20P_T3_A20_15 Sch=btn[3]
+set_property -dict { PACKAGE_PIN C18    IOSTANDARD LVCMOS33 } [get_ports { IO_RST_N }]; #IO_L16P_T2_35 Sch=ck_rst
+#set_property -dict { PACKAGE_PIN H13   IOSTANDARD LVCMOS33 } [get_ports { IO_RST }]; #IO_L20P_T3_A20_15 Sch=btn[3]
 
 ## Switches
 set_property -dict { PACKAGE_PIN H14   IOSTANDARD LVCMOS33 } [get_ports { SW[0] }]; #IO_L20N_T3_A19_15 Sch=sw[0]

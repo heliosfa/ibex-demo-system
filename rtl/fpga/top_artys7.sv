@@ -6,9 +6,9 @@
 module top_artys7 (
     // These inputs are defined in data/pins_nexysa7.xdc
     input               IO_CLK,
-    input               IO_RST,
+    input               IO_RST_N,
     input  [3:0]        SW,
-    input  [2:0]        BTN,
+    input  [3:0]        BTN,
     output [3:0]        LED,
     output [5:0]        RGB_LED,
     input               UART_RX,
@@ -20,7 +20,7 @@ module top_artys7 (
 
     // Instantiating the Ibex Demo System.
     ibex_demo_system #(
-      .GpiWidth(7),
+      .GpiWidth(8),
       .GpoWidth(4),
       .PwmWidth(6),
       .SRAMInitFile(SRAMInitFile)
@@ -46,9 +46,6 @@ module top_artys7 (
       .td_i   (1'b0),
       .td_o   ()
     );
-
-    logic IO_RST_N;
-    assign IO_RST_N = ~IO_RST;
 
     // Generating the system clock and reset for the FPGA.
     // Arty S7 has a 100 MHz clock.
